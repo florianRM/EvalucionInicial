@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Inicializa array</button>
+</body>
+<script>
+    const boton = document.querySelector('button');
+    let arrayNombres = [];
+
+    function inicializar() {
+        let nombre;
+
+        for(let i = arrayNombres.length; i < 5; i++) {
+            nombre = prompt('Introduzca un nombre');
+
+            if(arrayNombres.indexOf(nombre.toUpperCase()) != -1) {
+                alert('El nombre ya existe');
+            } else {
+                arrayNombres.push(nombre.toUpperCase());
+            }
+        }
+
+        arrayNombres.sort((a, b) => {
+            if(a < b) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
+
+        arrayNombres.forEach((value, index, array) => {
+            console.log(array[index].charAt(0));
+        })
+    }
+
+    boton.addEventListener('click', inicializar);
+</script>
+</html>
